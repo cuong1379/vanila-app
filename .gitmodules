@@ -1,0 +1,3 @@
+[submodule "baser-ui"]
+	path = baser-ui
+	url = https://gitlab.com/Cuong179/baser-ui

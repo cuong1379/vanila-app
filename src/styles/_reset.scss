@@ -1,0 +1,43 @@
+html {
+  background-color: #f9fafc;
+}
+
+.container {
+  @media screen and (min-width: 769px) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  @media screen and (min-width: 0) {
+    max-width: none;
+  }
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 1152px;
+  }
+  @media (min-width: 1216px) {
+    max-width: 1200px;
+  }
+  @media (min-width: 1400px) {
+    max-width: 1320px;
+  }
+}
+
+:root {
+  --font: "Inter", "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  --font-header: "Inter", sans-serif, "Segoe UI", "Segoe UI Web (West European)", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue";
+
+  // --font: 'Open Sans', Montserrat, 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI', -apple-system,
+  //   BlinkMacSystemFont, Roboto, 'Helvetica Neue', sans-serif;
+  // --font-header: Montserrat, sans-serif, 'Open Sans', 'Segoe UI', 'Segoe UI Web (West European)', 'Segoe UI',
+  //   -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue';
+  --primary: #02B4D4;
+  --secondary: #5bb3e4;
+  --text: #464d5d;
+  --dark: #232731;
+  --background: #f9fafc;
+
+  --indigo-9: #464d5d;
+  --indigo-7: #9198a9;
+}

@@ -1,0 +1,41 @@
+.subtitle {
+  font-family: var(--font-header);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 32px;
+
+  &--small {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+.text--xs {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.text--sm {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.sticky {
+  position: sticky;
+  &--left {
+    left: 0;
+  }
+  &--right {
+    right: 0;
+  }
+  &--top {
+    top: 0;
+  }
+  &--bottom {
+    bottom: 0;
+  }
+}
+
+.flex--long {
+  flex-grow: 1;
+}
