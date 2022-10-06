@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--gray-8);
-  font-family: var(--font-header);
-  font-weight: 600;
-}
-
 // body::-webkit-scrollbar {
 //   width: 1em;
 // }
@@ -21,37 +10,6 @@ h6 {
 
 input:-webkit-autofill {
   background-color: white !important;
-}
-
-h1 {
-  line-height: 104px;
-  font-size: 97px;
-  font-weight: bold;
-}
-
-h2 {
-  line-height: 72px;
-  font-size: 61px;
-}
-
-h3 {
-  line-height: 62px;
-  font-size: 48px;
-}
-
-h4 {
-  line-height: 48px;
-  font-size: 36px;
-}
-
-h5 {
-  line-height: 40px;
-  font-size: 24px;
-}
-
-h6 {
-  line-height: 32px;
-  font-size: 20px;
 }
 
 img {
@@ -699,19 +657,6 @@ body .sell-page-list {
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
-}
-
-.line {
-  height: 1px;
-  width: 100%;
-  background: var(--indigo-3);
-}
-
-.box {
-  background: var(--white-100);
-  border: 2px solid var(--indigo-3);
-  box-sizing: border-box;
-  border-radius: 8px;
 }
 
 .mb-32px {

@@ -1,42 +1,24 @@
-import * as React from 'react'
-import { useAuth } from 'src/hooks'
+import React from 'react'
+import { LoginDataType, useAuth } from 'src/hooks'
 import { useRouter } from 'next/router'
+import AuthForm from 'src/containers/auth/auth-form'
+import { message } from 'antd'
 
 export default function Login() {
   const router = useRouter()
-  const { profile, login, logout } = useAuth({
+  const { login } = useAuth({
     revalidateOnMount: false
   })
 
-  async function handleLoginClick() {
+  async function handleLoginClick(data: LoginDataType) {
     try {
-      await login()
-      console.log('redirect to dashboard')
-      router.push('/about')
+      await login(data)
+      router.push('/protected')
     } catch (error) {
       console.log('failed to login', error)
+      message.error('Login fail')
     }
   }
 
-  async function handleLogoutClick() {
-    try {
-      await logout()
-      console.log('redirect to login page')
-    } catch (error) {
-      console.log('failed to logout', error)
-    }
-  }
-
-  return (
-    <>
-      <h3>Login Page</h3>
-
-      <p>Profile: {JSON.stringify(profile || {}, null, 4)}</p>
-
-      <button onClick={handleLoginClick}>Login</button>
-      {/* <button onClick={handleGetProfileClick}>Get Profile</button> */}
-      <button onClick={handleLogoutClick}>Logout</button>
-      <button onClick={() => router.push('/about')}>Go to About</button>
-    </>
-  )
+  return <AuthForm handleLoginClick={handleLoginClick} />
 }

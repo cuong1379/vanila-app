@@ -39,7 +39,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<Data>)
             httpOnly: true,
             sameSite: 'lax'
           })
-          ;(res as NextApiResponse).status(200).json({ message: 'login successfully' })
+          if (data?.token) {
+            ;(res as NextApiResponse).status(200).json({ message: 'login successfully' })
+          }
+          ;(res as NextApiResponse).status(400).json({ message: 'data wrong' })
         } catch (error) {
           ;(res as NextApiResponse).status(500).json({ message: 'something went wrong' })
         }

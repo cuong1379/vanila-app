@@ -2,6 +2,10 @@ import { authApi } from 'src/services/auth'
 import useSWR from 'swr'
 import { PublicConfiguration } from 'swr/dist/types'
 
+export interface LoginDataType {
+	username: string
+	password: string
+}
 // Auth --> Protected Pages
 // <Auth>{children}</Auth>
 export function useAuth(options?: Partial<PublicConfiguration>) {
@@ -17,10 +21,10 @@ export function useAuth(options?: Partial<PublicConfiguration>) {
 
 	const firstLoading = profile === undefined && error === undefined
 
-	async function login() {
+	async function login(data: LoginDataType) {
 		await authApi.login({
-			username: 'nguyenvancuong1379@gmail.com',
-			password: 'cuong12345',
+			username: data?.username,
+			password: data?.password,
 		})
 
 		await mutate()

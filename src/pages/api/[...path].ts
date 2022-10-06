@@ -24,11 +24,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse<any>) 
 			req.headers.Authorization = `Bearer ${accessToken}`
 		}
 
+		//Can't set headers after they are sent to the client
+
 		// don't send cookies to API server
 		req.headers.cookie = ''
-
-		// /api/students
-		// https://js-post-api.herokuapp.com/api/students
 
 		proxy.web(req, res, {
 			target: process.env.API_URL,
