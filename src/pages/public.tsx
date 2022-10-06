@@ -1,9 +1,7 @@
-import Layout from "src/components/Layout"
+import { EmptyLayout } from "src/components/empty"
 
-export default function ClientPage() {
-  return (
-    <Layout>
-      <h1>Public</h1>
-    </Layout>
-  )
+export default function PublicPage() {
+  return <h1>Public</h1>
 }
+
+PublicPage.Layout = EmptyLayout

@@ -1,8 +1,7 @@
-import { signIn, signOut, useSession } from 'next-auth/react'
 import { List, Search, QuestionSquare, Gear, Grid3x3GapFill } from 'react-bootstrap-icons'
 import { Button } from 'baser-ui/controls'
 import css from 'styled-jsx/css'
-import { Logo, DateNow, TextColor, Loading, Clock } from 'baser-ui/components'
+import { Logo, DateNow, TextColor, Clock } from 'baser-ui/components'
 import { Dropdown } from 'antd'
 import MultiGoogle from 'src/components/MultiGoogle'
 
@@ -12,25 +11,22 @@ interface HeaderProps {
 }
 
 export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
-  const { data: session, status } = useSession()
-  const loading = status === 'loading'
 
   const AccountSetting = (
     <>
       <div className="account-setting p-4 mt-1">
         <div className="d-flex justify-content-center mb-3">
-          <img style={{ borderRadius: '100%', width: '60px', height: '60px' }} src={`${session?.user?.image}`} />
         </div>
 
         <div className="d-flex justify-content-center">
           <TextColor size="16px" b color="var(--gray-100)">
-            {session?.user?.name}
+
           </TextColor>
         </div>
 
         <div className="d-flex justify-content-center mb-4">
           <TextColor size="14px" color="var(--gray-100)">
-            {session?.user?.email}
+
           </TextColor>
         </div>
 
@@ -46,10 +42,6 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
           <Button
             type="neutralBorder"
             className="px-3 py-3"
-            onClick={(e) => {
-              e.preventDefault()
-              signOut()
-            }}
           >
             <TextColor size="16px" b color="var(--gray-100)">
               Sign Out
@@ -67,7 +59,7 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
     </>
   )
 
-  if (loading) return <Loading isLoading={loading} />
+ 
   return (
     <header>
       <noscript>
@@ -75,11 +67,11 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
       </noscript>
       <div className="px-3 py-2 header d-flex w-100 align-items-center justify-content-between">
         <div className="d-flex align-items-center">
-          {session?.user?.email && (
+     
             <Button type="white" className="mr-2" onClick={() => onSetCollapsed(!collapsed)}>
               <List size={25} color="#5f6368" />
             </Button>
-          )}
+    
 
           <Logo />
 
@@ -105,9 +97,9 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
             <Gear size={20} color="#5f6368" />
           </Button>
 
-          {session?.user?.email ? (
+
             <div className="d-flex align-items-center">
-              <Dropdown overlay={<MultiGoogle session={session} />} trigger={['click']} placement="bottom">
+              <Dropdown overlay={<MultiGoogle />} trigger={['click']} placement="bottom">
                 <a onClick={(e) => e.preventDefault()}>
                   <Button type="white" className="mr-3 ml-4">
                     <Grid3x3GapFill size={25} color="#5f6368" />
@@ -121,25 +113,11 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
                     <TextColor size="18px" b color="var(--gray-100)" className="mr-2">
                       Baser
                     </TextColor>
-                    <img className="header__avatar" src={`${session?.user?.image}`} />
                   </Button>
                 </a>
               </Dropdown>
             </div>
-          ) : (
-            <Button
-              type="neutralBorder"
-              className="px-3 py-3"
-              onClick={(e) => {
-                e.preventDefault()
-                signIn()
-              }}
-            >
-              <TextColor size="16px" b color="var(--gray-100)" className="mr-2">
-                Sign In
-              </TextColor>
-            </Button>
-          )}
+          
         </div>
       </div>
 

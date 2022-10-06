@@ -1,3 +1,3 @@
 export default function IndexPage() {
-  return <p>Home page</p>
+  return <>Home Page</>
 }

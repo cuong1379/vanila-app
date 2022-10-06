@@ -96,16 +96,3 @@ const style = css.global`
 `
 
 export default Signin
-
-// export async function getServerSideProps(context: any) {
-//   const providers = await getProviders()
-//   const session = await getSession(context)
-//   const csrfToken = await getCsrfToken(context)
-//   return {
-//     props: {
-//       providers,
-//       csrfToken,
-//       session
-//     }
-//   }
-// }

@@ -21,7 +21,11 @@
     "types": ["@types/node"],
     "baseUrl": ".",
     "paths": {
-      "@shared": ["src/components/shared"]
+      "@shared": ["src/components/shared"],
+      "@models": ["src/models"],
+      "@hooks": ["src/hooks"],
+      "@services": ["src/services"],
+      "@containers": ["src/containers"],
     },
     "downlevelIteration": true
   },

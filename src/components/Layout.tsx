@@ -3,8 +3,8 @@ import { Layout as AntLayout, Menu } from 'antd'
 import React, { useState } from 'react'
 import css from 'styled-jsx/css'
 import { PersonWorkspace, CloudSun, Gear, Laptop, InfoCircle, HouseDoor } from 'react-bootstrap-icons'
-import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import { Auth } from 'src/common'
 interface Props {
   children: React.ReactNode
 }
@@ -12,7 +12,6 @@ interface Props {
 const { Sider } = AntLayout
 
 export default function Layout({ children }: Props) {
-  const { data: session } = useSession()
   const router = useRouter()
   const [collapsed, setCollapsed] = useState(false)
 
@@ -58,10 +57,10 @@ export default function Layout({ children }: Props) {
 
   return (
     <>
-      <Header onSetCollapsed={setCollapsed} collapsed={collapsed} />
+      <Auth>
+        <Header onSetCollapsed={setCollapsed} collapsed={collapsed} />
 
-      <AntLayout style={{ minHeight: 'calc(100vh - 67px)' }}>
-        {session?.user?.email && (
+        <AntLayout style={{ minHeight: 'calc(100vh - 67px)' }}>
           <Sider
             collapsible
             collapsed={collapsed}
@@ -72,14 +71,14 @@ export default function Layout({ children }: Props) {
           >
             <Menu theme="light" mode="inline" defaultSelectedKeys={['0']} items={items} />
           </Sider>
-        )}
 
-        <AntLayout>
-          <main className="p-3">{children}</main>
+          <AntLayout>
+            <main className="p-3">{children}</main>
+          </AntLayout>
         </AntLayout>
-      </AntLayout>
 
-      <style jsx>{style}</style>
+        <style jsx>{style}</style>
+      </Auth>
     </>
   )
 }

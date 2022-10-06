@@ -1,7 +1,6 @@
 import React from 'react'
 import css from 'styled-jsx/css'
 import { Google, Facebook, Github } from 'react-bootstrap-icons'
-import { signIn } from 'next-auth/react'
 
 const BtnLogin = ({ type, provider }: any) => {
   return (
@@ -9,7 +8,6 @@ const BtnLogin = ({ type, provider }: any) => {
       <button
         className="w-100 my-3 py-2 styler d-flex align-items-center justify-content-center"
         style={{ background: `white`, color: `black` }}
-        onClick={() => signIn(provider?.id)}
       >
         {type === 'google' && <Google className="mr-2" size={19} color="#DC3545" />}
         {type === 'facebook' && <Facebook className="mr-2" size={19} color="#1094F4" />}
