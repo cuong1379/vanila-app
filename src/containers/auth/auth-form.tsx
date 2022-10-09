@@ -137,7 +137,6 @@ const style = css`
     background-image: linear-gradient(to bottom right, #beebf1, #f3accc);
     height: 100vh;
     overflow: hidden;
-    font-family: monospace;
   }
   .container-auth {
     position: absolute;
