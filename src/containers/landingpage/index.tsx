@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import css from 'styled-jsx/css'
+import Carousel from '../carousel'
 
 const LandingPage = () => {
   useEffect(() => {
@@ -45,7 +46,8 @@ const LandingPage = () => {
       </header>
       <div className="container-lp">
         <div className="item intro">
-          <div className="content">
+          <Carousel />
+          {/* <div className="content">
             <div className="showtotop">vanila</div>
             <h2 className="showtotop delay-02">vanila</h2>
             <div className="text">
@@ -53,7 +55,7 @@ const LandingPage = () => {
               <p className="showtotop delay-06">vanila</p>
               <p className="showtotop delay-08">vanila</p>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="item travel">
@@ -159,10 +161,6 @@ const LandingPage = () => {
 export default LandingPage
 
 const style = css.global`
-  body {
-    font-family: monospace;
-    margin: 0;
-  }
   .nav {
     position: absolute;
     top: 0;
