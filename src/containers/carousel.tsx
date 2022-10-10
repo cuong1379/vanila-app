@@ -5,7 +5,6 @@ const Carousel = () => {
   useEffect(() => {
     var count_group = document.querySelectorAll('.list-carousel .itemcarosel').length
     var activecarousel = 0
-    var deg_bg = 0
     var begin = true
 
     function Load() {
@@ -24,12 +23,10 @@ const Carousel = () => {
       }
 
       document.getElementById('itemcarosel_' + activecarousel)?.classList.remove('hide')
-      document.getElementById('itemcarosel_' + activecarousel)?.classList.add('activecarousel')
+      document.getElementById('itemcarosel_' + activecarousel)?.classList.add('activecarousel') 
 
       document.querySelector('.dots-page div')?.classList.remove('activecarousel')
       document.getElementById('dot_' + activecarousel)?.classList.add('activecarousel')
-      deg_bg = deg_bg - 100
-      ;(document.querySelector('.bg-rotate') as any).style.transform = "rotate('+deg_bg+'deg)"
     }
 
     document.getElementById('next')?.addEventListener('click', function () {
@@ -44,10 +41,7 @@ const Carousel = () => {
   return (
     <div>
       <div className="container-carousel">
-        <div className="background-rotate">
-          <div className="bg-rotate"></div>
-        </div>
-        <h1>Carousel </h1>
+        <h1>Carousel</h1>
         <div className="list-carousel">
           <div className="itemcarosel" id="itemcarosel_0">
             <img src="6.png" alt="" />
@@ -396,7 +390,7 @@ const style = css.global`
   .itemcaroseltext {
     background: #fff;
     border-radius: 20px;
-    padding: 10px;
+    padding: 33px;
     position: relative;
     margin-top: 10px;
     min-height: 20px;
@@ -413,6 +407,7 @@ const style = css.global`
     opacity: 0.6;
     margin-left: 20px;
     font-family: monospace;
+    font-size: 18px;
   }
   .activecarousel .content-carousel,
   .hide .content-carousel {

@@ -40,22 +40,18 @@ const LandingPage = () => {
           </ul>
         </div>
         <div className="banner">
-          <h1 className="title">vanila</h1>
+          <h1 className="title" style={{ color: ' #ff7575eb', mixBlendMode: 'color-burn' }}>
+            We're stronger together
+          </h1>
+          <h1 className="title" style={{ color: 'rgb(255 136 66 / 58%)' }}>
+            We're stronger together
+          </h1>
           <img src="banertext.webp" alt="" />
         </div>
       </header>
       <div className="container-lp">
         <div className="item intro">
           <Carousel />
-          {/* <div className="content">
-            <div className="showtotop">vanila</div>
-            <h2 className="showtotop delay-02">vanila</h2>
-            <div className="text">
-              <p className="showtotop delay-04">vanila</p>
-              <p className="showtotop delay-06">vanila</p>
-              <p className="showtotop delay-08">vanila</p>
-            </div>
-          </div> */}
         </div>
 
         <div className="item travel">
@@ -161,6 +157,21 @@ const LandingPage = () => {
 export default LandingPage
 
 const style = css.global`
+  @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+  ::selection {
+    background: var(--primary-100);
+    color: #555;
+  }
+  ::-moz-selection {
+    background: var(--primary-100);
+    color: #555;
+  }
+  ::-webkit-selection {
+    background: var(--primary-100);
+    color: #555;
+  }
+
   .nav {
     position: absolute;
     top: 0;
@@ -228,10 +239,12 @@ const style = css.global`
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    font-size: 20vh;
+    font-size: 6rem;
     opacity: 0;
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Satisfy', cursive;
     animation: showtitle 3s ease-in-out 5s 1 forwards;
+    letter-spacing: -0.025em;
+    font-weight: 900;
   }
   .banner img {
     position: absolute;
@@ -293,11 +306,8 @@ const style = css.global`
     margin: 30px 0;
     font-family: 'Great Vibes', cursive;
   }
-  .intro div {
-    font-size: 20px;
-  }
   .travel {
-    height: 160vh;
+    height: 120vh;
     width: 100%;
     padding: 150px 10%;
     background-color: #cfdadb;
