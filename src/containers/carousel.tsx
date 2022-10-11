@@ -1,29 +1,30 @@
 import React, { useEffect } from 'react'
 import css from 'styled-jsx/css'
+import { KeyboardFill, PenFill, FilePersonFill, ArrowRightCircleFill } from 'react-bootstrap-icons'
 
 const Carousel = () => {
   useEffect(() => {
     var count_group = document.querySelectorAll('.list-carousel .itemcarosel').length
     var activecarousel = 0
-    var begin = true
+
+    Load()
 
     function Load() {
-      if (begin) {
-        begin = false
-      } else {
-        document
-          .getElementById(
-            'itemcarosel_' + (activecarousel - 2 < -1 ? count_group - 2 : activecarousel - 2 < 0 ? count_group - 1 : activecarousel - 2)
-          )
-          ?.classList.remove('hide')
-        document
-          .getElementById('itemcarosel_' + (activecarousel - 1 < 0 ? count_group - 1 : activecarousel - 1))
-          ?.classList.remove('activecarousel')
-        document.getElementById('itemcarosel_' + (activecarousel - 1 < 0 ? count_group - 1 : activecarousel - 1))?.classList.add('hide')
-      }
+      document
+        .getElementById(
+          'itemcarosel_' +
+            (activecarousel - 2 < -1 ? count_group - 2 : activecarousel - 2 < 0 ? count_group - 1 : activecarousel - 2)
+        )
+        ?.classList.remove('hide')
+      document
+        .getElementById('itemcarosel_' + (activecarousel - 1 < 0 ? count_group - 1 : activecarousel - 1))
+        ?.classList.remove('activecarousel')
+      document
+        .getElementById('itemcarosel_' + (activecarousel - 1 < 0 ? count_group - 1 : activecarousel - 1))
+        ?.classList.add('hide')
 
       document.getElementById('itemcarosel_' + activecarousel)?.classList.remove('hide')
-      document.getElementById('itemcarosel_' + activecarousel)?.classList.add('activecarousel') 
+      document.getElementById('itemcarosel_' + activecarousel)?.classList.add('activecarousel')
 
       document.querySelector('.dots-page div')?.classList.remove('activecarousel')
       document.getElementById('dot_' + activecarousel)?.classList.add('activecarousel')
@@ -45,9 +46,9 @@ const Carousel = () => {
         <div className="list-carousel">
           <div className="itemcarosel" id="itemcarosel_0">
             <img src="6.png" alt="" />
-            <img src="3.png" alt="" />
+            <img src="green.png" alt="" />
             <img src="9.png" alt="" />
-            <img src="3.png" alt="" />
+            <img src="green.png" alt="" />
             <div className="content-carousel">
               <div className="itemcaroseltext">
                 {' '}
@@ -56,7 +57,7 @@ const Carousel = () => {
               </div>
               <div className="itemcaroseltext">
                 {' '}
-                <img src="3.png" alt="" /> <span>45$</span>
+                <img src="green.png" alt="" /> <span>45$</span>
                 <span>Sản phẩm</span>{' '}
               </div>
               <div className="itemcaroseltext">
@@ -91,9 +92,9 @@ const Carousel = () => {
           </div>
           <div className="itemcarosel" id="itemcarosel_2">
             <img src="7.png" alt="" />
-            <img src="3.png" alt="" />
+            <img src="green.png" alt="" />
             <img src="4.png" alt="" />
-            <img src="3.png" alt="" />
+            <img src="green.png" alt="" />
             <div className="content-carousel">
               <div className="itemcaroseltext">
                 {' '}
@@ -102,7 +103,7 @@ const Carousel = () => {
               </div>
               <div className="itemcaroseltext">
                 {' '}
-                <img src="3.png" alt="" /> <span>45$</span>
+                <img src="green.png" alt="" /> <span>45$</span>
                 <span>Sản phẩm</span>{' '}
               </div>
               <div className="itemcaroseltext">
@@ -141,17 +142,16 @@ const Carousel = () => {
       <div className="menu">
         <ul>
           <li>
-            <i className="fa-regular fa-keyboard"></i>{' '}
+            <KeyboardFill color="var(--primary-100)" />
           </li>
           <li>
-            <i className="fa-regular fa-pen-to-square"></i>
+            <PenFill color="var(--primary-100)" />
           </li>
           <li>
-            <i className="fa-regular fa-user"></i>
-            <i className="fa-solid fa-caret-down"></i>
+            <FilePersonFill color="var(--primary-100)" />
           </li>
           <li id="next">
-            <i className="fa-solid fa-arrow-right"></i>
+            <ArrowRightCircleFill color="var(--primary-100)" />
           </li>
         </ul>
       </div>
@@ -366,15 +366,18 @@ const style = css.global`
   }
   .menu li {
     list-style: none;
-    width: 42px;
-    padding: 20px 10px;
+    padding: 15px 20px;
     display: inline-block;
     border-radius: 15px;
     text-align: center;
+    cursor: pointer;
   }
   .menu li:nth-child(4) {
-    background-color: #101a1c;
+    background-color: #6ebfc7;
     color: #fff;
+  }
+  .menu li:nth-child(4):hover {
+    background-color: #ccc;
   }
   .content-carousel {
     position: absolute;
