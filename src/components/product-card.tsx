@@ -3,10 +3,14 @@ import React, { useState } from 'react'
 import css from 'styled-jsx/css'
 import { CartFill } from 'react-bootstrap-icons'
 
-const ProductCard = () => {
+interface ProductCardProps {
+  productId: string
+}
+
+const ProductCard = ({ productId }: ProductCardProps) => {
   const [checked, setChecked] = useState(true)
   return (
-    <div>
+    <div className="card-component">
       <div className="card">
         <div className="basicInfo">
           <div className="title">
@@ -17,24 +21,23 @@ const ProductCard = () => {
           <div className="images">
             <div className="img">
               <div className="item">
-                <input type="radio" name="color" id="green" checked={checked} onChange={() => setChecked(!checked)} />
-                <img src="green.png" />
+                <input type="radio" name="color" id={`green-${productId}`} checked={checked} />
+                {checked ? <img src="green.png" /> : <img src="black.png" />}
               </div>
               <div className="item">
-                <input type="radio" name="color" id="black" />
-                <img src="black.png" />
+                <input type="radio" name="color" id={`black-${productId}`} checked={!checked} />
               </div>
             </div>
           </div>
           <div className="colors">
             <label htmlFor="green">
               <div className="name">Green</div>
-              <div className="ellipse" style={{ background: '#CADB6E' }}></div>
+              <div className="ellipse" style={{ background: '#CADB6E' }} onClick={() => setChecked(true)}></div>
             </label>
 
             <label htmlFor="black">
               <div className="name">Black</div>
-              <div className="ellipse" style={{ background: '#2B2B2B' }}></div>
+              <div className="ellipse" style={{ background: '#2B2B2B' }} onClick={() => setChecked(false)}></div>
             </label>
           </div>
           <div className="addCard">
@@ -64,18 +67,15 @@ const style = css.global`
     --violet: #7f6eb2;
     --dark: #2b2b2b;
   }
-  body {
-    height: 100vh;
-    overflow: hidden;
-    font-family: system-ui;
-    background-image: linear-gradient(to top right, var(--green), var(--violet));
+  .card-component {
+    position: relative;
   }
   .card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
     border-radius: 30px;
-    transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
     width: 300px;
     background-color: var(--dark);
   }
@@ -104,11 +104,11 @@ const style = css.global`
     width: 100%;
     transform: scale(1) rotate(20deg);
     transition: 0.5s;
-    display: none;
+    // display: none;
   }
-  .img input:checked ~ img {
-    display: block;
-  }
+  // .img input:checked ~ img {
+  //   display: block;
+  // }
   .card .img::before {
     position: absolute;
     width: 200px;
