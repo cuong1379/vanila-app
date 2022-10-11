@@ -300,16 +300,10 @@ const style = css.global`
     justify-content: center;
     align-items: center;
   }
-  .intro h2 {
-    font-size: 150px;
-    padding: 0;
-    margin: 30px 0;
-    font-family: 'Great Vibes', cursive;
-  }
   .travel {
     height: 120vh;
     width: 100%;
-    padding: 150px 10%;
+    padding: 100px 10%;
     background-color: #cfdadb;
     text-align: center;
   }
