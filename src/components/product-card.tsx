@@ -21,11 +21,11 @@ const ProductCard = ({ productId }: ProductCardProps) => {
           <div className="images">
             <div className="img">
               <div className="item">
-                <input type="radio" name="color" id={`green-${productId}`} checked={checked} />
+                <input type="radio" name="color" id={`green-${productId}`} checked={checked} onChange={() => {}} />
                 {checked ? <img src="green.png" /> : <img src="black.png" />}
               </div>
               <div className="item">
-                <input type="radio" name="color" id={`black-${productId}`} checked={!checked} />
+                <input type="radio" name="color" id={`black-${productId}`} checked={!checked} onChange={() => {}} />
               </div>
             </div>
           </div>
