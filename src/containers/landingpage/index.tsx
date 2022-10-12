@@ -224,7 +224,8 @@ const style = css.global`
     position: fixed;
     top: 0;
     color: #555;
-    background-color: white;
+    backdrop-filter: saturate(180%) blur(5px);
+    background: hsla(0, 0%, 100%, 0.8);
     animation: showfixed 1s ease-in-out 1 forwards;
   }
   @keyframes showfixed {
