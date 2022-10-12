@@ -3,9 +3,9 @@ import css from 'styled-jsx/css'
 
 const TextTyping = () => {
   return (
-    <div>
+    <div className="d-flex justify-content-center">
       <div className="text-typing">
-        <p>Marry Christmas!</p>
+        <p>Merry Christmas!</p>
       </div>
       <style jsx>{style}</style>
     </div>
@@ -22,10 +22,9 @@ const style = css.global`
 
     p {
       border-right: 5px solid orange;
-      display: inline;
-      animation: typing 1.5s steps(17) 1, caret 0.5s steps(2) infinite;
       overflow: hidden;
       white-space: nowrap;
+      animation: typing 1.5s steps(17) 1, caret 0.5s steps(2) infinite;
     }
   }
 
@@ -33,6 +32,7 @@ const style = css.global`
     from {
       border-color: transparent;
     }
+
     to {
       border-color: orange;
     }
@@ -42,6 +42,7 @@ const style = css.global`
     from {
       width: 0;
     }
+
     to {
       width: 100%;
     }
