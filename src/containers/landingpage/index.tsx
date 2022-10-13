@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react'
 import { animation } from './animation'
-import {Navbar, Banner, Carousel, BestSeller, Deals, ShopAll, Footer} from 'src/containers'
-
+import { Navbar, Banner, Carousel, BestSeller, Deals, ShopAll, Footer } from 'src/containers'
 
 const LandingPage = () => {
   useEffect(() => {
     let items = document.querySelectorAll('.item')
-    document.addEventListener('scroll', () => {
+
+    const handleScrollEffect = () => {
       items.forEach((item) => {
         if ((item as any).offsetTop - window.scrollY < 350) {
           item.classList.add('active')
         }
       })
-    })
+    }
+    document.addEventListener('scroll', handleScrollEffect)
+    return () => window.removeEventListener('scroll', handleScrollEffect)
   }, [])
 
   return (

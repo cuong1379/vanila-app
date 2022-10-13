@@ -1,3 +1,4 @@
+import Logo from 'src/components/logo'
 import React, { useEffect } from 'react'
 import css from 'styled-jsx/css'
 
@@ -15,9 +16,7 @@ export const Navbar = () => {
   return (
     <div>
       <div className="nav" id="nav">
-        <div className="logo">
-          <img src="logo.png" alt="" />
-        </div>
+        <Logo />
         <ul>
           <li>Shapewaer</li>
           <li>Bras</li>
@@ -48,9 +47,7 @@ const style = css.global`
     color: #eee;
     z-index: 11111111111111111;
   }
-  .nav .logo img {
-    width: 60px;
-  }
+
   .nav ul {
     padding: 0;
     margin: 0;
@@ -58,6 +55,7 @@ const style = css.global`
     margin-left: 50px;
     display: flex;
     align-items: center;
+    font-weight: 600;
   }
   .nav ul li {
     padding: 0 30px;
