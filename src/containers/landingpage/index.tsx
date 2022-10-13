@@ -42,12 +42,6 @@ const LandingPage = () => {
           </ul>
         </div>
         <div className="banner">
-          {/* <h1 className="title" style={{ color: ' #ff7575eb', mixBlendMode: 'color-burn' }}>
-            The gift of peace
-          </h1>
-          <h1 className="title" style={{ color: 'rgb(255 136 66 / 58%)' }}>
-            The gift of peace
-          </h1> */}
           <TextTyping content="The gift of love. The gift of peace" className="mt-20" color="white" />
           <img src="banertext.webp" alt="" />
         </div>
@@ -84,7 +78,7 @@ const LandingPage = () => {
           </div>
           <div className="list">
             <div className="itemImg showtotop delay-04">
-              <img src="1.jpg" alt="" />
+              <img src="https://i.ibb.co/Qv2JzMc/wood-brown.png" alt="" />
               <div className="content">
                 <h3>Hình</h3>
                 <h3>Nội dung hình</h3>
@@ -92,7 +86,7 @@ const LandingPage = () => {
             </div>
 
             <div className="itemImg showtotop delay-06">
-              <img src="2.jpg" alt="" />
+              <img src="https://i.ibb.co/Qv2JzMc/wood-brown.png" alt="" />
               <div className="content">
                 <h3>Hình</h3>
                 <h3>Nội dung hình</h3>
@@ -100,7 +94,7 @@ const LandingPage = () => {
             </div>
 
             <div className="itemImg showtotop delay-08">
-              <img src="3.jpg" alt="" />
+              <img src="https://i.ibb.co/Qv2JzMc/wood-brown.png" alt="" />
               <div className="content">
                 <h3>Hình</h3>
                 <h3>Nội dung hình</h3>
@@ -108,7 +102,7 @@ const LandingPage = () => {
             </div>
 
             <div className="itemImg showtotop delay-1">
-              <img src="4.jpg" alt="" />
+              <img src="https://i.ibb.co/Qv2JzMc/wood-brown.png" alt="" />
               <div className="content">
                 <h3>Hình</h3>
                 <h3>Nội dung hình</h3>
@@ -124,7 +118,7 @@ const LandingPage = () => {
           </div>
           <div className="content">
             <div className="img">
-              <img src="1.jpg" alt="" />
+              <img src="https://i.ibb.co/Qv2JzMc/wood-brown.png" alt="" />
             </div>
             <div className="list">
               <div className="contactItem zoomshow delay-02">
