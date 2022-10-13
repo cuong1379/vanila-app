@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import css from 'styled-jsx/css'
 import { KeyboardFill, PenFill, FilePersonFill, ArrowRightCircleFill } from 'react-bootstrap-icons'
 
-const Carousel = () => {
+export const Carousel = () => {
   useEffect(() => {
     var count_group = document.querySelectorAll('.list-carousel .itemcarosel').length
     var activecarousel = 0
@@ -159,8 +159,6 @@ const Carousel = () => {
     </div>
   )
 }
-
-export default Carousel
 
 const style = css.global`
   .container-carousel {

@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
 
 // body::-webkit-scrollbar {
 //   width: 0.5em;
@@ -34,6 +34,19 @@ body::-webkit-scrollbar-thumb:hover {
 }
 body::-webkit-scrollbar-button {
   display: none;
+}
+
+::selection {
+  background: var(--primary-100);
+  color: #555;
+}
+::-moz-selection {
+  background: var(--primary-100);
+  color: #555;
+}
+::-webkit-selection {
+  background: var(--primary-100);
+  color: #555;
 }
 
 img {

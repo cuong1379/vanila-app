@@ -1,0 +1,7 @@
+export * from './footer'
+export * from './best-seller'
+export * from './carousel'
+export * from './deals'
+export * from './navbar'
+export * from './shop-all'
+export * from './banner'
