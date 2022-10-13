@@ -1,50 +1,53 @@
 import React from 'react'
-import css from 'styled-jsx/css'
+// import css from 'styled-jsx/css'
 
-const TextTyping = () => {
+interface TextTyping {
+  content: string
+  className?: string
+  color?: string
+}
+
+const TextTyping = ({ content, className, color }: TextTyping) => {
   return (
-    <div className="d-flex justify-content-center">
+    <div className={`d-flex justify-content-center ${className}`}>
       <div className="text-typing">
-        <p>Merry Christmas!</p>
+        <p>{content}</p>
       </div>
-      <style jsx>{style}</style>
+      <style jsx>{`
+        .text-typing {
+          font-family: 'Cookie', cursive !important;
+          font-size: 100px;
+          color: ${color};
+          p {
+            border-right: 5px solid ${color};
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 2s steps(${content?.length}) 1, caret 1s steps(2) infinite;
+          }
+        }
+
+        @keyframes caret {
+          from {
+            border-color: transparent;
+          }
+
+          to {
+            border-color: ${color};
+          }
+        }
+
+        @keyframes typing {
+          from {
+            width: 0;
+          }
+
+          to {
+            width: 100%;
+          }
+        }
+      `}</style>
     </div>
   )
 }
 
 export default TextTyping
-
-const style = css.global`
-  @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
-  .text-typing {
-    font-family: 'Cookie', cursive !important;
-    font-size: 100px;
-
-    p {
-      border-right: 5px solid orange;
-      overflow: hidden;
-      white-space: nowrap;
-      animation: typing 1.5s steps(17) 1, caret 0.5s steps(2) infinite;
-    }
-  }
-
-  @keyframes caret {
-    from {
-      border-color: transparent;
-    }
-
-    to {
-      border-color: orange;
-    }
-  }
-
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-
-    to {
-      width: 100%;
-    }
-  }
-`

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import ProductCard from 'src/components/product-card'
+import TextTyping from 'src/components/text-typing'
 import css from 'styled-jsx/css'
 import Carousel from '../carousel'
 
@@ -41,12 +42,13 @@ const LandingPage = () => {
           </ul>
         </div>
         <div className="banner">
-          <h1 className="title" style={{ color: ' #ff7575eb', mixBlendMode: 'color-burn' }}>
-            We're stronger together
+          {/* <h1 className="title" style={{ color: ' #ff7575eb', mixBlendMode: 'color-burn' }}>
+            The gift of peace
           </h1>
           <h1 className="title" style={{ color: 'rgb(255 136 66 / 58%)' }}>
-            We're stronger together
-          </h1>
+            The gift of peace
+          </h1> */}
+          <TextTyping content="The gift of love. The gift of peace" className="mt-20" color="white" />
           <img src="banertext.webp" alt="" />
         </div>
       </header>
@@ -178,8 +180,7 @@ const LandingPage = () => {
 export default LandingPage
 
 const style = css.global`
-  @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-
+  @import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
   ::selection {
     background: var(--primary-100);
     color: #555;
@@ -246,8 +247,7 @@ const style = css.global`
     width: 100%;
     // filter: brightness(0.9);
     height: 100%;
-    background-image: url(banner.jpg);
-    // background-image: linear-gradient(to top right, var(--secondary-100), var(--primary-100));
+    background-image: url(https://i.ibb.co/YLMqsDK/background-header.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top left;
@@ -263,7 +263,7 @@ const style = css.global`
     color: #fff;
     font-size: 6rem;
     opacity: 0;
-    font-family: 'Satisfy', cursive;
+    font-family: 'Cookie', cursive;
     animation: showtitle 3s ease-in-out 5s 1 forwards;
     letter-spacing: -0.025em;
     font-weight: 900;
@@ -375,6 +375,16 @@ const style = css.global`
       opacity: 1;
       filter: blur(0);
       transform: translate(0);
+    }
+  }
+  @keyframes blurshow {
+    from {
+      opacity: 0;
+      filter: blur(33px);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
     }
   }
   .darkshow .img img {

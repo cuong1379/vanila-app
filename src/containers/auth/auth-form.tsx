@@ -134,7 +134,7 @@ export default AuthForm
 
 const style = css`
   .auth-form {
-    background-image: linear-gradient(to bottom right, var(--primary-100), var(--secondary-100));
+    background-image: linear-gradient(to bottom right, var(--primary-50), var(--primary-100));
     height: 100vh;
     overflow: hidden;
   }
@@ -154,7 +154,7 @@ const style = css`
     width: 600px;
     height: 600px;
     content: '';
-    background-image: linear-gradient(to top right, var(--primary-100), var(--secondary-100));
+    background-image: linear-gradient(to top right, var(--primary-50), var(--primary-100));
     border-radius: 50%;
     z-index: -1;
     animation: backgroundanimation 6s ease-in-out 2s infinite alternate;
@@ -166,7 +166,7 @@ const style = css`
     width: 400px;
     height: 400px;
     content: '';
-    background-image: linear-gradient(to top right, var(--primary-100), var(--secondary-100));
+    background-image: linear-gradient(to top right, var(--primary-50), var(--primary-100));
     border-radius: 50%;
     z-index: -1;
     filter: blur(10px);
@@ -206,7 +206,7 @@ const style = css`
     padding: 10px 0;
     position: absolute;
     bottom: 0;
-    background-image: linear-gradient(to right, var(--primary-100), var(--secondary-100));
+    background-image: linear-gradient(to right, var(--primary-50), var(--primary-100));
     color: #fff;
   }
   .option-btn {
@@ -262,7 +262,7 @@ const style = css`
     z-index: -1;
   }
   #rotate {
-    background-image: linear-gradient(to right, var(--primary-100), var(--secondary-100));
+    background-image: linear-gradient(to right, var(--primary-50), var(--primary-100));
     width: 500px;
     height: 500px;
     border-radius: 30% 70% 70% 30% / 30% 43% 57% 70%;
@@ -294,7 +294,7 @@ const style = css`
     width: 50%;
     left: 0;
     transition: 1s;
-    background-color: var(--primary-100);
+    background-color: var(--primary-50);
     height: 40px;
     z-index: -1;
     border-radius: 20px;
@@ -349,7 +349,7 @@ const style = css`
       width: 300px;
       height: 300px;
       content: '';
-      background-image: linear-gradient(to top right, var(--primary-100), var(--secondary-100));
+      background-image: linear-gradient(to top right, var(--primary-50), var(--primary-100));
       border-radius: 50%;
       z-index: -1;
       animation: backgroundanimation 6s ease-in-out 2s infinite alternate;

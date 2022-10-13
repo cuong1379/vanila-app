@@ -1,15 +1,39 @@
 // @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
-body::-webkit-scrollbar {
-  width: 0.5em;
-}
+// body::-webkit-scrollbar {
+//   width: 0.5em;
+// }
 
-body::-webkit-scrollbar-thumb {
-  background-color: var(--primary-100)
-}
+// body::-webkit-scrollbar-thumb {
+//   background-color: var(--primary-100)
+// }
 
 input:-webkit-autofill {
   background-color: white !important;
+}
+
+body::-webkit-scrollbar {
+  background-color: var(--primary-50);
+  width: 0.5em;
+  height: 0.5em;
+}
+// body::-webkit-scrollbar-track {
+//   background-color: var(--primary-100);
+// }
+// body::-webkit-scrollbar-track:hover {
+//   background-color: var(--primary-100);
+// }
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-50);
+  border-radius: 0.5em;
+  border: 2px solid var(--primary-50);
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color:var(--primary-100);
+  border: 2px solid var(--primary-100);
+}
+body::-webkit-scrollbar-button {
+  display: none;
 }
 
 img {
@@ -45,6 +69,14 @@ img {
 
 .txt-secondary {
   color: var(--secondary-100);
+}
+
+.mt-10 {
+  margin-top: 100px;
+}
+
+.mt-20 {
+  margin-top: 200px;
 }
 
 
