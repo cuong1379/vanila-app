@@ -162,7 +162,7 @@ export const Carousel = () => {
 
 const style = css.global`
   .container-carousel {
-    background-color: #eee;
+    // background-color: #eee;
     position: absolute;
     top: 160%;
     left: 50%;
