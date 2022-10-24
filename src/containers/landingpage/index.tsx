@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { animation } from './animation'
-import { Navbar, Banner, Carousel, BestSeller, Deals, ShopAll, Footer } from 'src/containers'
+import { Navbar, Banner, Carousel, BestSeller, Footer } from 'src/containers'
 
 const LandingPage = () => {
   useEffect(() => {
@@ -29,8 +29,8 @@ const LandingPage = () => {
         </div>
 
         <BestSeller />
-        <Deals />
-        <ShopAll />
+        {/* <Deals /> */}
+        {/* <ShopAll /> */}
         <Footer />
       </div>
       <style jsx>{animation}</style>
