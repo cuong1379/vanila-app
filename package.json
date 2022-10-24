@@ -1,10 +1,10 @@
 {
-  "name": "baser-fe",
+  "name": "vanila",
   "private": true,
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "next start",
     "lint": "next lint",
     "pack:merge": "node baser-ui/package.merge.js"
   },

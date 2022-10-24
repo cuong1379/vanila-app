@@ -4,7 +4,7 @@ import ProductCard from 'src/components/product-card'
 export default function Products() {
   return (
     <div>
-      <ProductCard />
+      <ProductCard productId="product1" />
     </div>
   )
 }

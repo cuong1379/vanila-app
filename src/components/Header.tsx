@@ -11,23 +11,17 @@ interface HeaderProps {
 }
 
 export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
-
   const AccountSetting = (
     <>
       <div className="account-setting p-4 mt-1">
-        <div className="d-flex justify-content-center mb-3">
-        </div>
+        <div className="d-flex justify-content-center mb-3"></div>
 
         <div className="d-flex justify-content-center">
-          <TextColor size="16px" b color="var(--gray-100)">
-
-          </TextColor>
+          <TextColor size="16px" b color="var(--gray-100)"></TextColor>
         </div>
 
         <div className="d-flex justify-content-center mb-4">
-          <TextColor size="14px" color="var(--gray-100)">
-
-          </TextColor>
+          <TextColor size="14px" color="var(--gray-100)"></TextColor>
         </div>
 
         <div className="d-flex justify-content-center sign_out py-3">
@@ -39,10 +33,7 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
         </div>
 
         <div className="d-flex justify-content-center py-3">
-          <Button
-            type="neutralBorder"
-            className="px-3 py-3"
-          >
+          <Button type="neutralBorder" className="px-3 py-3">
             <TextColor size="16px" b color="var(--gray-100)">
               Sign Out
             </TextColor>
@@ -59,7 +50,6 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
     </>
   )
 
- 
   return (
     <header>
       <noscript>
@@ -67,11 +57,9 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
       </noscript>
       <div className="px-3 py-2 header d-flex w-100 align-items-center justify-content-between">
         <div className="d-flex align-items-center">
-     
-            <Button type="white" className="mr-2" onClick={() => onSetCollapsed(!collapsed)}>
-              <List size={25} color="#5f6368" />
-            </Button>
-    
+          <Button type="white" className="mr-2" onClick={() => onSetCollapsed(!collapsed)}>
+            <List size={25} color="#5f6368" />
+          </Button>
 
           <Logo />
 
@@ -97,27 +85,25 @@ export default function Header({ onSetCollapsed, collapsed }: HeaderProps) {
             <Gear size={20} color="#5f6368" />
           </Button>
 
+          <div className="d-flex align-items-center">
+            <Dropdown overlay={<MultiGoogle />} trigger={['click']} placement="bottom">
+              <button onClick={(e) => e.preventDefault()}>
+                <Button type="white" className="mr-3 ml-4">
+                  <Grid3x3GapFill size={25} color="#5f6368" />
+                </Button>
+              </button>
+            </Dropdown>
 
-            <div className="d-flex align-items-center">
-              <Dropdown overlay={<MultiGoogle />} trigger={['click']} placement="bottom">
-                <a onClick={(e) => e.preventDefault()}>
-                  <Button type="white" className="mr-3 ml-4">
-                    <Grid3x3GapFill size={25} color="#5f6368" />
-                  </Button>
-                </a>
-              </Dropdown>
-
-              <Dropdown overlay={AccountSetting} trigger={['click']}>
-                <a onClick={(e) => e.preventDefault()}>
-                  <Button type="neutralBorder" className="px-3 py-4">
-                    <TextColor size="18px" b color="var(--gray-100)" className="mr-2">
-                      Baser
-                    </TextColor>
-                  </Button>
-                </a>
-              </Dropdown>
-            </div>
-          
+            <Dropdown overlay={AccountSetting} trigger={['click']}>
+              <button onClick={(e) => e.preventDefault()}>
+                <Button type="neutralBorder" className="px-3 py-4">
+                  <TextColor size="18px" b color="var(--gray-100)" className="mr-2">
+                    Baser
+                  </TextColor>
+                </Button>
+              </button>
+            </Dropdown>
+          </div>
         </div>
       </div>
 

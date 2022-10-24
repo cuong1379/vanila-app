@@ -1,4 +1,3 @@
 export default function Informations() {
-    return <p>Informations</p>
-  }
-  
+  return <p>Informations</p>
+}
