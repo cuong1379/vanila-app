@@ -1,0 +1,28 @@
+.button {
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-header);
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--grey-8);
+  font-size: 16px;
+  font-weight: 600;
+  background-color: var(--indigo-2);
+  border: 2px solid var(--indigo-2);
+  transition: var(--transition);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &:hover {
+    background-color: var(--indigo-4);
+    border: 2px solid var(--indigo-4);
+  }
+  &--white {
+    border: 2px solid var(--indigo-4);
+    background-color: var(--white-100);
+    &:hover {
+      border: 2px solid var(--indigo-6);
+      background-color: var(--white-100);
+    }
+  }
+}

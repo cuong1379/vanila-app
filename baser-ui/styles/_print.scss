@@ -1,0 +1,32 @@
+#print-layout {
+  display: none;
+  * {
+    visibility: hidden;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+    -webkit-print-color-adjust: exact;
+  }
+
+  @page {
+    size: portrait;
+    //size: A4;
+  }
+
+  #print-layout {
+    display: block;
+    visibility: visible;
+    * {
+      visibility: visible;
+    }
+  }
+
+  #print-layout {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

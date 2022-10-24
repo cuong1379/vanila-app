@@ -1,0 +1,7 @@
+img {
+  transition: filter 0.25s ease-in-out;
+  &.lazyload {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+  }
+}

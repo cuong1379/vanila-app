@@ -1,0 +1,136 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: var(--gray-8);
+  font-family: var(--font-header);
+  font-weight: 600;
+  margin: 0;
+}
+
+.h1 {
+  font-size: 97px;
+  line-height: 104px;
+}
+.h2 {
+  font-size: 61px;
+  line-height: 72px;
+}
+.h3 {
+  font-size: 48px;
+  line-height: 62px;
+}
+.h4 {
+  font-size: 36px;
+  line-height: 48px;
+}
+.h5 {
+  font-size: 24px;
+  line-height: 40px;
+}
+.h6 {
+  font-size: 20px;
+  line-height: 32px;
+}
+
+.body-1 {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+.body-1b {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+.body-2 {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 24px;
+}
+.body-2b {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 24px;
+}
+.body-2p {
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 32px;
+}
+.caption {
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 24px;
+}
+.subtitle-1 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 32px;
+}
+.subtitle-2 {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+}
+.eyebrow {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.1em;
+}
+
+.txt-small {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.txt-medium {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.text--primary {
+  color: var(--primary-100);
+}
+
+.text--secondary {
+  color: var(--secondary-100);
+}
+
+.text--gray {
+  color: var(--indigo-8);
+}
+
+.text--semi-bold {
+  font-weight: 500;
+}
+
+.text--capitalize {
+  &:first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.text--ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.error-message {
+  color: var(--red-500);
+  font-size: 11px;
+  line-height: 24px;
+  font-weight: 400;
+}

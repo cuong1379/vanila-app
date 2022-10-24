@@ -1,0 +1,1076 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Selless.SYS.Auth",
+    "description": "Selless.SYS.Auth, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null",
+    "termsOfService": "https://crossian.com/terms",
+    "contact": {
+      "name": "Crossian",
+      "url": "https://www.linkedin.com/company/crossian",
+      "email": ""
+    },
+    "license": {
+      "name": "Selless LICX",
+      "url": "https://crossian.com/license"
+    },
+    "version": "1.2.0.0"
+  },
+  "paths": {
+    "/auth/login": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "Login to default provider",
+        "parameters": [
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "Login by using the basic authentication",
+        "parameters": [
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicLogin"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicLogin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicLogin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/login/{provider}": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "Login to specific OAuth2 provider (google, facebook,..) by redirects",
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "tags": [
+          "Logout"
+        ],
+        "summary": "Remove cookies and sign user out of the system",
+        "parameters": [
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "description": "URL that user will be redirected to",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Web redirections the redirect_uri or default client Url"
+          },
+          "401": {
+            "description": "Not loggedin"
+          }
+        }
+      }
+    },
+    "/auth/logto/{user}": {
+      "get": {
+        "tags": [
+          "Logto"
+        ],
+        "summary": "Login to user by code (code, email, phone) or id",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/password/forget/create": {
+      "post": {
+        "tags": [
+          "Password"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "redirect_uri",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgetPasswordRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgetPasswordRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgetPasswordRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgetPasswordRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/password/forget/confirm": {
+      "post": {
+        "tags": [
+          "Password"
+        ],
+        "summary": "",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordConfirmRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordConfirmRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordConfirmRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordConfirmRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[LOGGEDIN] Get current logged in User profile, NEW user does not have roles info. Return HTTP-401 for INACTIVE users",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/user"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[LOGGEDIN] Update user profile. Return HTTP-401 for INACTIVE/Invalid users, HTTP-400 for invalid input",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/user"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[ADMIN] Admin submit Basic profile (email/pass login) to register for NEW user account to the system.\r\nThis type of user has almost nothing, just profile, no roles. Only after approval from Admin, the status NEW -> ACTIVE\r\nuser can have roles in JWT, therefore they can access other business features.\r\nReturn HTTP-201 for already created or duplicated info, HTTP-400 for invalid input, HTTP-401 for invalid user",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Registration"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Registration"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Registration"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Registration"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile/{id}": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[LOGGEDIN] Get User profile for active LOGGED IN user (Return HTTP-401 for NEW/INACTIVE users)",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": { }
+              },
+              "application/json": {
+                "schema": { }
+              },
+              "text/json": {
+                "schema": { }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/profile/search": {
+      "get": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[USER] Search for profile that require at least 3 chars and optional meta info",
+        "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minLength": 3,
+              "type": "string"
+            }
+          },
+          {
+            "name": "is_system",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "is_publisher",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "is_supplier",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/user"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/user"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/user"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/profile/password/change": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[LOGGEDIN] User change their password, need current password. Return HTTP-401 for INACTIVE/Invalid users, HTTP-400 for invalid input",
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicPasswordUpdate"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicPasswordUpdate"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicPasswordUpdate"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BasicPasswordUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile/{id}/password/reset": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[ADMIN] Reset anyone password by Admin. Return HTTP-404 for non-existance profile, HTTP-400 for invalid input, HTTP-401 for invalid user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile/{id}/activate": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[ADMIN] Activate user profile: NEW -> ACTIVE. Return HTTP-404 for non-existance profile, HTTP-401 for invalid user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile/{id}/deactivate": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[ADMIN] Deactivate user profile: NEW / ACTIVE -> INACTIVE. Return HTTP-404 for non-existance profile, HTTP-401 for invalid user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile/{id}/reactivate": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[ADMIN] Reactivate an INACTIVE user profile: INACTIVE -> ACTIVE. Return HTTP-404 for non-existance profile, HTTP-401 for invalid user",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile/{id}/roles": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[ADMIN] Update user roles. Return HTTP-404 for non-existance profile, HTTP-401 for invalid user, HTTP-400 for invalid input",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile/{id}/roles/add": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[ADMIN] Update user roles. Return HTTP-404 for non-existance profile, HTTP-401 for invalid user, HTTP-400 for invalid input",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/profile/{id}/roles/remove": {
+      "post": {
+        "tags": [
+          "Profile"
+        ],
+        "summary": "[ADMIN] Update user roles. Return HTTP-404 for non-existance profile, HTTP-401 for invalid user, HTTP-400 for invalid input",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/auth/status": {
+      "get": {
+        "tags": [
+          "Status"
+        ],
+        "summary": "Get loggin status: 1 if logged-in, otherwise 0",
+        "responses": {
+          "200": {
+            "description": "1 if logged-in, otherwise 0",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BasicLogin": {
+        "required": [
+          "name",
+          "sha256"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "description": "https://www.npmjs.com/package/js-sha256\r\nsha256('The quick brown fox jumps over the lazy dog') => d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592",
+            "format": "password"
+          }
+        },
+        "additionalProperties": false
+      },
+      "BasicPasswordUpdate": {
+        "required": [
+          "curent_sha256",
+          "new_sha256"
+        ],
+        "type": "object",
+        "properties": {
+          "curent_sha256": {
+            "type": "string",
+            "description": "Current user password\r\nhttps://www.npmjs.com/package/js-sha256\r\nsha256('The quick brown fox jumps over the lazy dog') => d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592",
+            "format": "password"
+          },
+          "new_sha256": {
+            "type": "string",
+            "description": "New user password\r\nhttps://www.npmjs.com/package/js-sha256\r\nsha256('The quick brown fox jumps over the lazy dog') => d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592",
+            "format": "password"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForgetPasswordRequest": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "profile_status": {
+        "enum": [
+          "NEW",
+          "ACTIVE",
+          "INACTIVE"
+        ],
+        "type": "string"
+      },
+      "provider_type": {
+        "enum": [
+          "BASIC",
+          "GOOGLE",
+          "FACEBOOK",
+          "MICROSOFT"
+        ],
+        "type": "string"
+      },
+      "Registration": {
+        "type": "object",
+        "properties": {
+          "login": {
+            "$ref": "#/components/schemas/BasicLogin"
+          },
+          "user": {
+            "$ref": "#/components/schemas/user"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResetPasswordConfirmRequest": {
+        "type": "object",
+        "properties": {
+          "t": {
+            "type": "string",
+            "nullable": true
+          },
+          "new_sha256": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "user": {
+        "required": [
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "avatar": {
+            "type": "string",
+            "description": "Default null, to use https://cdn.selless.com/u/a/{profile-id}",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "description": "(419) 306-2827",
+            "nullable": true
+          },
+          "last_name": {
+            "type": "string",
+            "description": "Beutler",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "description": "Lauril",
+            "nullable": true
+          },
+          "address1": {
+            "type": "string",
+            "description": "No. 407",
+            "nullable": true
+          },
+          "address2": {
+            "type": "string",
+            "description": "Lynshire Lane",
+            "nullable": true
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "45840",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "description": "Findlay",
+            "nullable": true
+          },
+          "state": {
+            "type": "string",
+            "description": "Ohio",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "description": "US",
+            "nullable": true
+          },
+          "country_code": {
+            "type": "string",
+            "description": "United States",
+            "nullable": true
+          },
+          "passport": {
+            "type": "string",
+            "description": "National ID/Passport No",
+            "nullable": true
+          },
+          "skype": {
+            "type": "string",
+            "nullable": true
+          },
+          "wechat": {
+            "type": "string",
+            "nullable": true
+          },
+          "name2": {
+            "type": "string",
+            "nullable": true
+          },
+          "email2": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone2": {
+            "type": "string",
+            "nullable": true
+          },
+          "skype2": {
+            "type": "string",
+            "nullable": true
+          },
+          "wechat2": {
+            "type": "string",
+            "nullable": true
+          },
+          "provider": {
+            "$ref": "#/components/schemas/provider_type"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/user_meta"
+          },
+          "code": {
+            "type": "string",
+            "description": "Unique login name for the profile, email will be used as default, also using for login and search"
+          },
+          "status": {
+            "$ref": "#/components/schemas/profile_status"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "some.one@aol.com",
+            "nullable": true
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "user_meta": {
+        "type": "object",
+        "properties": {
+          "is_system": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "is_publisher": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "is_supplier": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
